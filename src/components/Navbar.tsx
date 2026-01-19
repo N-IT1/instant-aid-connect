@@ -20,9 +20,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-accent rounded-md flex items-center justify-center">
-              <span className="text-accent-foreground font-bold text-sm">IH</span>
-            </div>
+            <img src="/logo.jpg" alt="Instant Help Logo" className="w-8 h-8 rounded-md object-cover" />
             <span className="font-bold text-xl text-foreground">INSTANT HELP</span>
           </a>
 

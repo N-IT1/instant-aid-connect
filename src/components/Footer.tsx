@@ -27,9 +27,7 @@ const Footer = () => {
           {/* Column 1: Brand & Mission */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center shadow-lg shadow-accent/20">
-                <span className="text-accent-foreground font-bold text-lg">IH</span>
-              </div>
+              <img src="/logo.jpg" alt="Instant Help Logo" className="w-10 h-10 rounded-lg object-cover shadow-lg shadow-accent/20" />
               <span className="font-bold text-2xl tracking-tight">INSTANT HELP</span>
             </div>
             <p className="text-primary-foreground/70 leading-relaxed">
