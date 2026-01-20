@@ -47,7 +47,8 @@ const HeroSection = () => {
             <Link to="/get-involved" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-coral-hover text-white text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                variant="outline"
+                className="text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto border-2 border-white/20 text-white bg-white/5 hover:bg-white/10 hover:border-white/40 w-full sm:w-auto transition-all duration-300"
               >
                 Get Involved
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -56,8 +57,7 @@ const HeroSection = () => {
             <Link to="/partner">
               <Button
                 size="lg"
-                variant="outline"
-                className="text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto border-2 border-white/20 text-white bg-white/5 hover:bg-white/10 hover:border-white/40 w-full sm:w-auto transition-all duration-300"
+                className="bg-accent hover:bg-coral-hover text-white text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
               >
                 <Handshake className="mr-2 h-5 w-5" />
                 Partner With Us
