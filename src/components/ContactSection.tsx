@@ -16,33 +16,26 @@ const ContactSection = () => {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: formData,
-      });
+    const subject = `Contact Form Submission from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nOrganization: ${formData.organization || "N/A"}\n\nMessage:\n${formData.message}`;
 
-      if (error) throw error;
+    // Construct mailto link
+    const mailtoLink = `mailto:aguelebright300@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you soon.",
-      });
+    // Open email client
+    window.location.href = mailtoLink;
 
-      setFormData({ name: "", email: "", organization: "", message: "" });
-    } catch (error) {
-      console.error("Error sending message:", error);
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    toast({
+      title: "Opening Email Client",
+      description: "Please send the pre-filled email to complete your request.",
+    });
+
+    setFormData({ name: "", email: "", organization: "", message: "" });
+    setIsLoading(false);
   };
 
   return (
@@ -67,8 +60,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Phone / WhatsApp</h3>
-                  <a 
-                    href="tel:+2348063511862" 
+                  <a
+                    href="tel:+2348063511862"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     +234 806 351 1862
@@ -82,8 +75,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  <a 
-                    href="mailto:aguelebright300@gmail.com" 
+                  <a
+                    href="mailto:aguelebright300@gmail.com"
                     className="text-muted-foreground hover:text-accent transition-colors"
                   >
                     aguelebright300@gmail.com
@@ -126,8 +119,8 @@ const ContactSection = () => {
                   rows={5}
                   className="bg-card resize-none"
                 />
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isLoading}
                   className="w-full bg-accent hover:bg-coral-hover text-accent-foreground"
                 >

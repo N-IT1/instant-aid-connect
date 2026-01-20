@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Handshake, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +20,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <img src="/logo.jpg" alt="Instant Help Logo" className="w-8 h-8 rounded-md object-cover" />
+          <Link to="/" className="flex items-center gap-3">
+            <img src="/logo.jpg" alt="Instant Help Logo" className="w-12 h-12 rounded-lg object-cover shadow-sm" />
             <span className="font-bold text-xl text-foreground">INSTANT HELP</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -39,9 +40,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button className="bg-accent hover:bg-coral-hover text-accent-foreground">
-              Get Involved
-            </Button>
+            <Link to="/get-involved">
+              <Button className="bg-accent hover:bg-coral-hover text-accent-foreground">
+                Get Involved
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,9 +71,11 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button className="bg-accent hover:bg-coral-hover text-accent-foreground w-full mt-2">
-                Get Involved
-              </Button>
+              <Link to="/get-involved" className="w-full mt-2">
+                <Button className="bg-accent hover:bg-coral-hover text-accent-foreground w-full">
+                  Get Involved
+                </Button>
+              </Link>
             </div>
           </div>
         )}

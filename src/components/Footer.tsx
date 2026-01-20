@@ -1,23 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Twitter, Instagram, Linkedin, Send } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const usefulLinks = [
     { href: "#how-it-works", label: "How It Works" },
-    { href: "#featured-campaigns", label: "Featured Campaigns" },
     { href: "#impact", label: "Our Impact" },
-    { href: "#partners", label: "Partners" },
   ];
 
   const supportLinks = [
-    { href: "#help-center", label: "Help Center" },
-    { href: "#safety", label: "Safety & Trust" },
+    { href: "/help-center", label: "Help Center" },
+    { href: "/safety", label: "Safety & Trust" },
     { href: "#contact", label: "Contact Us" },
-    { href: "#privacy", label: "Privacy Policy" },
-    { href: "#terms", label: "Terms of Service" },
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
   ];
 
   return (
@@ -74,13 +73,23 @@ const Footer = () => {
             <ul className="space-y-4">
               {supportLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-accent transition-colors duration-200 flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors"></span>
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("#") ? (
+                    <a
+                      href={link.href}
+                      className="text-primary-foreground/70 hover:text-accent transition-colors duration-200 flex items-center gap-2 group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors"></span>
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-primary-foreground/70 hover:text-accent transition-colors duration-200 flex items-center gap-2 group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors"></span>
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -119,9 +128,9 @@ const Footer = () => {
               © {currentYear} INSTANT HELP. All rights reserved.
             </p>
             <div className="flex gap-8 text-sm text-primary-foreground/60">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
-              <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
             </div>
           </div>
         </div>

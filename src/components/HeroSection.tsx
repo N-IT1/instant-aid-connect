@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Handshake } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -43,35 +44,39 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-coral-hover text-white text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
-            >
-              Get Involved
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto border-2 border-white/20 text-white bg-white/5 hover:bg-white/10 hover:border-white/40 w-full sm:w-auto transition-all duration-300"
-            >
-              <Handshake className="mr-2 h-5 w-5" />
-              Partner With Us
-            </Button>
+            <Link to="/get-involved" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-coral-hover text-white text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+              >
+                Get Involved
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/partner">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-base md:text-lg px-6 py-4 md:px-8 md:py-7 h-auto border-2 border-white/20 text-white bg-white/5 hover:bg-white/10 hover:border-white/40 w-full sm:w-auto transition-all duration-300"
+              >
+                <Handshake className="mr-2 h-5 w-5" />
+                Partner With Us
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-10 md:mt-16 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 md:gap-8 text-center animate-fade-in opacity-0" style={{ animationFillMode: 'forwards', animationDelay: '0.6s' }}>
             <div>
-              <p className="text-2xl md:text-3xl font-bold text-white">2min</p>
-              <p className="text-xs md:text-sm text-white/70">Avg. Response</p>
+              <p className="text-sm sm:text-xl md:text-3xl font-bold text-white">Fast</p>
+              <p className="text-sm sm:text-xl md:text-3xl font-bold text-white"> Response</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-bold text-white">10k+</p>
-              <p className="text-xs md:text-sm text-white/70">Volunteers</p>
+              <p className="text-sm sm:text-xl md:text-3xl font-bold text-white">Active</p>
+              <p className="text-sm sm:text-xl md:text-3xl font-bold text-white">Volunteers</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-bold text-white">24/7</p>
-              <p className="text-xs md:text-sm text-white/70">Support</p>
+              <p className="text-sm sm:text-xl md:text-3xl font-bold text-white">24/7</p>
+              <p className="text-sm sm:text-xl md:text-3xl font-bold text-white">Support</p>
             </div>
           </div>
         </div>
